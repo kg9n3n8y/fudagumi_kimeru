@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta name="robots" content="noindex, nofollow">
     <meta charset="utf-8">
@@ -9,24 +9,24 @@
     <title>札組み作成</title>
     <link rel="shortcut icon" type="image/png" href="./icon_fudagumi.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./icon_fudagumi.png">
-    <link rel="stylesheet" href="./style.css" type="text/css">
-    <script type="text/javascript" src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
   </head>
 
   <body>
     <h1>札組み作成</h1>
 
-    <p>
-      <input type="button" onclick="makeFudagumi(2)" value=" ２試合 "> 
-      <input type="button" onclick="makeFudagumi(3)" value=" ３試合 "> 
-      <input type="button" onclick="makeFudagumi(4)" value=" ４試合 ">
-    </p>
+      <div class="button-group">
+        <button onclick="makeFudagumi(2)"> ２試合 </button>
+        <button onclick="makeFudagumi(3)"> ３試合 </button>
+        <button onclick="makeFudagumi(4)"> ４試合 </button>
+      </div>
 
-    <p>
-      <input type="button" onclick="makeFudagumi(5)" value=" ５試合 "> 
-      <input type="button" onclick="makeFudagumi(6)" value=" ６試合 "> 
-      <input type="button" onclick="makeFudagumi(7)" value=" ７試合 ">
-    </p>
+      <div class="button-group">
+        <button onclick="makeFudagumi(5)"> ５試合 </button>
+        <button onclick="makeFudagumi(6)"> ６試合 </button>
+        <button onclick="makeFudagumi(7)"> ７試合 </button>
+      </div>
 
     <textarea id="textBox" rows="10" cols="25">ボタンを押してね</textarea>
     </textarea>

@@ -19,3 +19,6 @@ button {
   width            : auto;
   padding          : 0.5rem 1rem;
 }
+.button-group{
+  padding          : 0.5rem;
+}

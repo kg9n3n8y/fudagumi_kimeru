@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
-    <?!= HtmlService.createHtmlOutputFromFile("js").getContent(); ?>
-
   <head>
-
-    <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
+    <style type="text/css">
+      <link rel="stylesheet" href="style.css">
+    </style>
 
   </head>
 
@@ -13,15 +11,15 @@
     <h1>札組み作成</h1>
 
     <p>
-      <input type="button" onclick="makeFudagumi(1)" value=" １試合 "> 
       <input type="button" onclick="makeFudagumi(2)" value=" ２試合 "> 
-      <input type="button" onclick="makeFudagumi(3)" value=" ３試合 ">
+      <input type="button" onclick="makeFudagumi(3)" value=" ３試合 "> 
+      <input type="button" onclick="makeFudagumi(4)" value=" ４試合 ">
     </p>
 
     <p>
-      <input type="button" onclick="makeFudagumi(4)" value=" ４試合 "> 
       <input type="button" onclick="makeFudagumi(5)" value=" ５試合 "> 
-      <input type="button" onclick="makeFudagumi(6)" value=" ６試合 ">
+      <input type="button" onclick="makeFudagumi(6)" value=" ６試合 "> 
+      <input type="button" onclick="makeFudagumi(7)" value=" ７試合 ">
     </p>
 
     <textarea id="textBox" rows="10" cols="25">ボタンを押してね</textarea>

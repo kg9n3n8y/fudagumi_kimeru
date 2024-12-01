@@ -35,12 +35,12 @@ function makeFudagumi(num) {
 
   // 札組みのパターン
   const list_ptn = [
-      [l1, l2, l3, l1, l2, l3],
-      [l1, l3, l2, l1, l3, l2],
-      [l2, l3, l1, l2, l3, l1],
-      [l2, l1, l3, l2, l1, l3],
-      [l3, l1, l2, l3, l1, l2],
-      [l3, l2, l1, l3, l2, l1]
+      [l1, l2, l3, l1, l2, l3, l1],
+      [l1, l3, l2, l1, l3, l2, l1],
+      [l2, l3, l1, l2, l3, l1, l2],
+      [l2, l1, l3, l2, l1, l3, l2],
+      [l3, l1, l2, l3, l1, l2, l3],
+      [l3, l2, l1, l3, l2, l1, l3]
   ];
 
   // 試合数

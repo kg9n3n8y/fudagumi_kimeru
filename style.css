@@ -10,7 +10,7 @@ h1 {
 textarea {
   font-size        : 16px;
 }
-input[type=button] {
+button {
   color            : #FFFFFF;
   background-color : #336633;
   border           : none;

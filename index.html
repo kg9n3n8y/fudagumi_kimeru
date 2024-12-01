@@ -1,44 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta name="robots" content="noindex, nofollow">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <title>札組み作成ツール</title>
     <link rel="shortcut icon" type="image/png" href="icon_fudagumi.png">
-    <link rel="stylesheet" href="/style.css" type="text/css">
-    <script type="text/javascript" src="/script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
   </head>
 
   <body>
-    <h1>札組み作成</h1>
+    <main>
+      <h1>札組み作成</h1>
 
-    <p>
-      <input type="button" onclick="makeFudagumi(2)" value=" ２試合 "> 
-      <input type="button" onclick="makeFudagumi(3)" value=" ３試合 "> 
-      <input type="button" onclick="makeFudagumi(4)" value=" ４試合 ">
-    </p>
+      <div class="button-group">
+        <button onclick="makeFudagumi(2)">2試合</button>
+        <button onclick="makeFudagumi(3)">3試合</button>
+        <button onclick="makeFudagumi(4)">4試合</button>
+      </div>
 
-    <p>
-      <input type="button" onclick="makeFudagumi(5)" value=" ５試合 "> 
-      <input type="button" onclick="makeFudagumi(6)" value=" ６試合 "> 
-      <input type="button" onclick="makeFudagumi(7)" value=" ７試合 ">
-    </p>
+      <div class="button-group">
+        <button onclick="makeFudagumi(5)">5試合</button>
+        <button onclick="makeFudagumi(6)">6試合</button>
+        <button onclick="makeFudagumi(7)">7試合</button>
+      </div>
 
-    <textarea id="textBox" rows="10" cols="25">ボタンを押してね</textarea>
-    </textarea>
+      <textarea id="textBox" rows="10" cols="25" aria-label="生成された札組み">ボタンを押してね</textarea>
 
-    <h1>共有用QR・URL</h1>
+      <h2>共有用QR・URL</h2>
 
-    <p>
-      <img src="qr.png" width="200px" height="200px"/>
-    </p>
+      <div class="qr-container">
+        <img src="qr.png" alt="共有用QRコード" width="200" height="200">
+      </div>
 
-    <p>
-      <input type="button" onclick="copyUrl()" value="  URLをコピーする  ">
-    </p>
-
+      <div class="button-group">
+        <button onclick="copyUrl()">URLをコピーする</button>
+      </div>
+    </main>
   </body>
-
 </html>

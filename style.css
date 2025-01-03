@@ -5,7 +5,11 @@ body {
 }
 h1 {
   color            : #333333;
-  font-size        : xx-large;
+  font-size        : x-large;
+  margin           : 0;
+}
+p {
+  margin           : 0;
 }
 textarea {
   font-size        : 16px;
@@ -20,6 +24,6 @@ button {
   padding          : 0.5rem 1rem;
 }
 .button-group{
-  padding-top      : 0.5rem;
-  padding-bottom   : 0.5rem;
+  padding-top      : 0.3rem;
+  padding-bottom   : 0.3rem;
 }

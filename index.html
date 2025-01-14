@@ -7,13 +7,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <title>札組み作成</title>
-    <link rel="shortcut icon" type="image/png" href="https://kg9n3n8y.github.io/fudagumi_kimeru//icon_fudagumi.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://kg9n3n8y.github.io/fudagumi_kimeru//icon_fudagumi.png">
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="shortcut icon" type="image/png" href="https://kg9n3n8y.github.io/fudagumi_kimeru/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kg9n3n8y.github.io/fudagumi_kimeru/icon.png">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
   </head>
 
   <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+          console.log('ServiceWorker registration successful.');
+        }).catch(err => {
+          console.log('ServiceWorker registration failed.');
+        });
+      }
+    </script>
     <h1>札組み作成</h1>
 
       <div class="button-group">

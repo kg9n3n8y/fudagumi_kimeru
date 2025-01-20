@@ -28,7 +28,11 @@ function shuffleArray(array) {
 
 // 札組みを生成する関数
 function generateFudagumi(array) {
-    return shuffleArray(array).slice(0, 5).sort();
+    if (array === "基礎練") {
+        return array;
+    } else {
+        return shuffleArray(array).slice(0, 5).sort();
+    }
 }
 
 // ランダム選択関数
@@ -86,6 +90,41 @@ async function makeFudagumi(num) {
         // クリップボードにコピー
         const success = await copyToClipboard(message);
         alert(success ? `${num}試合分の札組みをコピーしました` : 'コピーに失敗しました');
+
+    } catch (error) {
+        console.error('エラーが発生しました:', error);
+        alert('処理中にエラーが発生しました');
+    }
+}
+
+// メイン関数
+async function makeKisoren(num) {
+    try {
+        const { SET1, SET2, SET3 } = FUDA_SETS;
+        const patterns = [
+            [SET1, "基礎練", SET2, SET3, SET1, SET2, SET3],
+            [SET1, "基礎練", SET3, SET2, SET1, SET3, SET2],
+            [SET2, "基礎練", SET3, SET1, SET2, SET3, SET1],
+            [SET2, "基礎練", SET1, SET3, SET2, SET1, SET3],
+            [SET3, "基礎練", SET1, SET2, SET3, SET1, SET2],
+            [SET3, "基礎練", SET2, SET1, SET3, SET2, SET1]
+        ];
+
+        const selectedPattern = selectRandom(patterns);
+        const message = [
+            getToday(),
+            ...Array.from({ length: num + 1 }, (_, i) => 
+                `${GAME_NUMBERS[i]}${generateFudagumi(selectedPattern[i])}`
+            ),
+            'の札組でお願いします'
+        ].join('\n');
+
+        // テキストボックスに表示
+        document.getElementById('textBox').value = message;
+
+        // クリップボードにコピー
+        const success = await copyToClipboard(message);
+        alert(success ? `${num}試合 + 基礎練の札組みをコピーしました` : 'コピーに失敗しました');
 
     } catch (error) {
         console.error('エラーが発生しました:', error);

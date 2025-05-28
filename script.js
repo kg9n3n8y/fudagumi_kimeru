@@ -5,7 +5,7 @@ const FUDA_SETS = {
     SET3: ["ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ"]
 };
 
-const GAME_NUMBERS = ["① ", "② ", "③ ", "④ ", "⑤ ", "⑥ ", "⑦ "];
+const GAME_NUMBERS = ["① ", "② ", "③ ", "④ ", "⑤ ", "⑥ ", "⑦ ", "⑧ "];
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
 
 // 日付フォーマット関数
@@ -67,12 +67,12 @@ async function makeFudagumi(num) {
     try {
         const { SET1, SET2, SET3 } = FUDA_SETS;
         const patterns = [
-            [SET1, SET2, SET3, SET1, SET2, SET3, SET1],
-            [SET1, SET3, SET2, SET1, SET3, SET2, SET1],
-            [SET2, SET3, SET1, SET2, SET3, SET1, SET2],
-            [SET2, SET1, SET3, SET2, SET1, SET3, SET2],
-            [SET3, SET1, SET2, SET3, SET1, SET2, SET3],
-            [SET3, SET2, SET1, SET3, SET2, SET1, SET3]
+            [SET1, SET2, SET3, SET1, SET2, SET3, SET1, SET2],
+            [SET1, SET3, SET2, SET1, SET3, SET2, SET1, SET3],
+            [SET2, SET3, SET1, SET2, SET3, SET1, SET2, SET3],
+            [SET2, SET1, SET3, SET2, SET1, SET3, SET2, SET1],
+            [SET3, SET1, SET2, SET3, SET1, SET2, SET3, SET1],
+            [SET3, SET2, SET1, SET3, SET2, SET1, SET3, SET2]
         ];
 
         const selectedPattern = selectRandom(patterns);

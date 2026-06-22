@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: #e1dac3;
+  font-family:
+    'Helvetica Neue',
+    Helvetica,
+    'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN',
+    Arial,
+    'Yu Gothic',
+    Meiryo,
+    sans-serif;
+  font-size: medium;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100dvh;
+}
+
+button {
+  font-family: inherit;
+}
+
+ruby rt {
+  font-size: 0.55em;
+}

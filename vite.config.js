@@ -1,14 +1,26 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const base = '/fudagumi_kimeru/docs/'
+
 export default defineConfig({
-  base: '/fudagumi_kimeru/',
+  base,
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'app.html'),
+      },
+    },
+  },
   server: {
-    open: '/fudagumi_kimeru/',
+    open: base,
   },
   preview: {
-    open: '/fudagumi_kimeru/',
+    open: base,
   },
   plugins: [
     vue(),
@@ -22,8 +34,8 @@ export default defineConfig({
         theme_color: '#336633',
         background_color: '#E1DAC3',
         display: 'standalone',
-        start_url: '/fudagumi_kimeru/',
-        scope: '/fudagumi_kimeru/',
+        start_url: base,
+        scope: base,
         icons: [
           {
             src: 'icon.png',

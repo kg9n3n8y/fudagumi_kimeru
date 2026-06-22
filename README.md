@@ -81,7 +81,10 @@
 
 ```
 fudagumi_kimeru/
-├── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ
+├── .github/workflows/deploy.yml  # docs/ への自動デプロイ
+├── app.html                      # Vite のエントリ（開発・ビルド用）
+├── index.html                    # 本番用リダイレクト
+├── docs/                         # ビルド成果物（GitHub Pages で配信）
 ├── public/
 │   └── icon.png                  # ファビコン・PWA アイコン
 ├── src/
@@ -98,6 +101,7 @@ fudagumi_kimeru/
 │       ├── useClipboard.js
 │       └── useToast.js
 ├── index.html
+├── app.html
 ├── vite.config.js
 └── package.json
 ```
@@ -118,7 +122,7 @@ npm install
 npm run dev
 ```
 
-ブラウザで http://localhost:5173/fudagumi_kimeru/ を開いてください。
+ブラウザで http://localhost:5173/fudagumi_kimeru/docs/ を開いてください。
 
 本番ビルドの確認:
 
@@ -129,15 +133,16 @@ npm run preview
 
 ## デプロイ
 
-`main` ブランチへの push で GitHub Actions がビルドし、ビルド成果物を `gh-pages` ブランチへ自動デプロイします。
+GitHub Pages は **`main` ブランチのルート**から配信されます（設定変更不要）。
 
-GitHub Pages の設定（初回のみ）:
+- ルートの `index.html` は `/fudagumi_kimeru/docs/` へリダイレクト
+- ビルド成果物は `docs/` フォルダに出力・コミット
+- `main` への push（`docs/` 以外の変更）で GitHub Actions が自動ビルドし、`docs/` を更新
 
-1. リポジトリの **Settings → Pages** を開く
-2. **Build and deployment → Source** を **Deploy from a branch** にする
-3. **Branch** を `gh-pages` / `/ (root)` に設定する
+公開 URL:
 
-> `main` ブランチのソースをそのまま公開すると、未ビルドの `index.html` が配信され画面が真っ白になります。必ず `gh-pages` ブランチを指定してください。
+- https://kg9n3n8y.github.io/fudagumi_kimeru/ （リダイレクト）
+- https://kg9n3n8y.github.io/fudagumi_kimeru/docs/ （アプリ本体）
 
 ## 技術スタック
 

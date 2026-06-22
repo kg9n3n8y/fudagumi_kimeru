@@ -81,12 +81,13 @@
 
 ```
 fudagumi_kimeru/
-├── .github/workflows/deploy.yml  # docs/ への自動デプロイ
+├── .github/workflows/deploy.yml  # ルートへの自動デプロイ
 ├── app.html                      # Vite のエントリ（開発・ビルド用）
-├── index.html                    # 本番用リダイレクト
-├── docs/                         # ビルド成果物（GitHub Pages で配信）
+├── index.html                    # ビルド済み（GitHub Pages で配信）
+├── assets/                       # ビルド済み JS/CSS
+├── scripts/copy-dist-to-root.mjs
 ├── public/
-│   └── icon.png                  # ファビコン・PWA アイコン
+│   └── icon.png
 ├── src/
 │   ├── App.vue
 │   ├── main.js
@@ -122,7 +123,7 @@ npm install
 npm run dev
 ```
 
-ブラウザで http://localhost:5173/fudagumi_kimeru/docs/ を開いてください。
+ブラウザで http://localhost:5173/fudagumi_kimeru/ を開いてください。
 
 本番ビルドの確認:
 
@@ -133,16 +134,14 @@ npm run preview
 
 ## デプロイ
 
-GitHub Pages は **`main` ブランチのルート**から配信されます（設定変更不要）。
+GitHub Pages は **`main` ブランチのルート**から配信されます。
 
-- ルートの `index.html` は `/fudagumi_kimeru/docs/` へリダイレクト
-- ビルド成果物は `docs/` フォルダに出力・コミット
-- `main` への push（`docs/` 以外の変更）で GitHub Actions が自動ビルドし、`docs/` を更新
+- Vite のエントリは `app.html`（開発用）
+- `npm run deploy:copy` で `dist/` をビルドし、成果物をルートへコピー
+- ルートの `index.html` / `assets/` などが公開されるファイル
+- `main` への push（生成ファイル以外の変更）で GitHub Actions が自動デプロイ
 
-公開 URL:
-
-- https://kg9n3n8y.github.io/fudagumi_kimeru/ （リダイレクト）
-- https://kg9n3n8y.github.io/fudagumi_kimeru/docs/ （アプリ本体）
+公開 URL: https://kg9n3n8y.github.io/fudagumi_kimeru/
 
 ## 技術スタック
 

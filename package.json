@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite app.html",
-    "build": "vite build && touch docs/.nojekyll && mv docs/app.html docs/index.html",
+    "build": "vite build && mv dist/app.html dist/index.html",
+    "deploy:copy": "npm run build && node scripts/copy-dist-to-root.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

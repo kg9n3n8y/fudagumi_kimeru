@@ -1,10 +1,14 @@
-name: Deploy to docs
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths-ignore:
-      - 'docs/**'
+      - 'assets/**'
+      - 'sw.js'
+      - 'workbox-*.js'
+      - 'manifest.webmanifest'
+      - 'index.html'
 
 permissions:
   contents: write
@@ -25,12 +29,12 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      - run: npm run deploy:copy
 
       - uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions[bot]
           author_email: github-actions[bot]@users.noreply.github.com
-          message: 'docs: ビルド成果物をデプロイ'
-          add: 'docs'
+          message: 'deploy: ビルド成果物をルートへ反映'
+          add: 'index.html assets icon.png manifest.webmanifest sw.js workbox-*.js'
           push: true

@@ -129,9 +129,15 @@ npm run preview
 
 ## デプロイ
 
-`main` ブランチへの push で GitHub Actions がビルドし、GitHub Pages へ自動デプロイします。
+`main` ブランチへの push で GitHub Actions がビルドし、ビルド成果物を `gh-pages` ブランチへ自動デプロイします。
 
-初回のみ、リポジトリの **Settings → Pages → Build and deployment → Source** を **GitHub Actions** に設定してください（従来の「branch / root」からの変更が必要です）。
+GitHub Pages の設定（初回のみ）:
+
+1. リポジトリの **Settings → Pages** を開く
+2. **Build and deployment → Source** を **Deploy from a branch** にする
+3. **Branch** を `gh-pages` / `/ (root)` に設定する
+
+> `main` ブランチのソースをそのまま公開すると、未ビルドの `index.html` が配信され画面が真っ白になります。必ず `gh-pages` ブランチを指定してください。
 
 ## 技術スタック
 

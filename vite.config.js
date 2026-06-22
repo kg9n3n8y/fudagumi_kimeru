@@ -4,6 +4,12 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   base: '/fudagumi_kimeru/',
+  server: {
+    open: '/fudagumi_kimeru/',
+  },
+  preview: {
+    open: '/fudagumi_kimeru/',
+  },
   plugins: [
     vue(),
     VitePWA({

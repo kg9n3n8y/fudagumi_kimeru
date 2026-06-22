@@ -26,7 +26,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['icon.png'],
+      includeAssets: ['icon.png', 'thumbnail.png'],
       manifest: {
         name: '組子 - 札組み作成',
         short_name: '組子',
@@ -42,6 +42,15 @@ export default defineConfig({
             sizes: '180x180',
             type: 'image/png',
             purpose: 'any maskable',
+          },
+        ],
+        screenshots: [
+          {
+            src: 'thumbnail.png',
+            sizes: '1200x630',
+            type: 'image/png',
+            form_factor: 'wide',
+            label: '組子 - 札組み作成',
           },
         ],
       },

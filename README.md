@@ -81,13 +81,10 @@
 
 ```
 fudagumi_kimeru/
-├── .github/workflows/deploy.yml  # ルートへの自動デプロイ
+├── .github/workflows/deploy.yml  # GitHub Pages への自動デプロイ
 ├── app.html                      # Vite のエントリ（開発・ビルド用）
-├── index.html                    # ビルド済み（GitHub Pages で配信）
-├── assets/                       # ビルド済み JS/CSS
-├── scripts/copy-dist-to-root.mjs
 ├── public/
-│   └── icon.png
+│   └── icon.png                  # ファビコン・PWA アイコン
 ├── src/
 │   ├── App.vue
 │   ├── main.js
@@ -134,12 +131,11 @@ npm run preview
 
 ## デプロイ
 
-GitHub Pages は **`main` ブランチのルート**から配信されます。
+GitHub Pages は **GitHub Actions** から配信されます（`Settings → Pages → Source: GitHub Actions`）。
 
-- Vite のエントリは `app.html`（開発用）
-- `npm run deploy:copy` で `dist/` をビルドし、成果物をルートへコピー
-- ルートの `index.html` / `assets/` などが公開されるファイル
-- `main` への push（生成ファイル以外の変更）で GitHub Actions が自動デプロイ
+1. `main` への push でワークフローが `npm run build` を実行
+2. `dist/` を Pages artifact としてアップロード
+3. `actions/deploy-pages` が公開サイトを更新
 
 公開 URL: https://kg9n3n8y.github.io/fudagumi_kimeru/
 

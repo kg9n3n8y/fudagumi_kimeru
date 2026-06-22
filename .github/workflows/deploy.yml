@@ -3,22 +3,19 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'assets/**'
-      - 'sw.js'
-      - 'workbox-*.js'
-      - 'manifest.webmanifest'
-      - 'index.html'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,12 +26,18 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run deploy:copy
+      - run: npm run build
 
-      - uses: EndBug/add-and-commit@v9
+      - uses: actions/upload-pages-artifact@v3
         with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: 'deploy: ビルド成果物をルートへ反映'
-          add: 'index.html assets icon.png manifest.webmanifest sw.js workbox-*.js'
-          push: true
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

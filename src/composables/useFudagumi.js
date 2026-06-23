@@ -45,7 +45,7 @@ function generateFudagumi(source) {
   if (source === '基礎練') {
     return source
   }
-  return shuffleArray(source).slice(0, 5).sort().join('')
+  return shuffleArray(source).slice(0, 5).sort().join(',')
 }
 
 function selectRandom(array) {

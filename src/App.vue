@@ -16,6 +16,6 @@ import PwaUpdateBanner from './components/PwaUpdateBanner.vue'
 .app {
   width: min(100%, 36rem);
   margin: 0 auto;
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 1rem 0.75rem 1.5rem;
 }
 </style>

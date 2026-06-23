@@ -31,12 +31,12 @@ defineEmits(['click'])
 <style scoped>
 .game-button {
   width: 100%;
-  padding: 0.85rem 0.5rem;
+  padding: 0.65rem 0.25rem;
   border: 2px solid transparent;
-  border-radius: 0.6rem;
+  border-radius: 0.5rem;
   background: #336633;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
